@@ -38,6 +38,7 @@ body{
 .card{
     background:transparent;
     border: none;
+    padding:10px;
 }
 .card-title{
     height: 48px;
