@@ -24,7 +24,7 @@ class BonbondexController extends AbstractController
     public function showBasket()
     {
         $CandyManager = new CandyManager($this->pdo);
-        $candy = $CandyManager->selectBasket();
+        $candy = $CandyManager->selectBasket($_GET['search'] ?? '');
         return $this->twig->render('candyBasket.html.twig', ['candy' => $candy]);
     }
 
@@ -37,9 +37,9 @@ class BonbondexController extends AbstractController
                 $body = $response->getBody();
                 $body = json_decode($body, true, 10);
                 foreach ($body['products'] as $key => $value) {
-                    if (!empty($value['product_name_fr']) && !empty($value['image_url'])) {
+                    if (!empty($value['product_name_fr']) && !empty($value['image_front_small_url'])) {
                         $result[$key]['name'] = $value['product_name_fr'];
-                        $result[$key]['picture'] = $value['image_url'];
+                        $result[$key]['picture'] = $value['image_front_small_url'];
                     }
                 }
                 $CandyManager = new CandyManager($this->pdo);

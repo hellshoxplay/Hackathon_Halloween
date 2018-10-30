@@ -1,10 +1,8 @@
-{% include 'layout.html.twig' %}
 <div class="container">
     {% include 'searchbar.html.twig' %}
     <div class="row">
         {% for candy in candy %}
             <div class="card  col-sm-4 col-md-4 col-4">
-                {% block number %}{% endblock %}
                 <img class="card-img-top" src="https://via.placeholder.com/150x150" alt="Card image cap">
                     <h5 class="card-title text-center">{{ candy.name }}</h5>
             </div>

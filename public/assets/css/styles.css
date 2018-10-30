@@ -10,6 +10,24 @@
     background-repeat: no-repeat;
     min-height: 100vh;
 }
+.backgroundbody2{
+    background: linear-gradient(#fffdfc, #000000);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.backgroundbody2 span{
+    position: absolute;
+    top: 5px;
+    left: 16vw;
+    right: 20px;
+    padding: 2px;
+    font-size: 9pt;
+    width: 35px;
+    box-shadow: none;
+}
+
 body{
     font-family: Spooky;
 

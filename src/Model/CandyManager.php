@@ -24,9 +24,22 @@ class CandyManager extends AbstractManager
         return $this->pdo->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
-    public function selectBasket(): array
+    public function selectBasket(?string $search = ''): array
     {
-        return $this->pdo->query('SELECT * FROM ' . $this->table . ' WHERE quantity > 0', \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        $searching='';
+        if (!empty($search)) {
+            $searching = " AND name LIKE :search";
+        }
+        $statement = $this->pdo->prepare('SELECT * FROM ' . $this->table  . " WHERE quantity > 0" . $searching );
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+
+        if (!empty($search)) {
+            $statement->bindValue('search', "%$search%", \PDO::PARAM_STR);
+        }
+        if ($statement->execute()) {
+            return $statement->fetchAll();
+        }
+
     }
 
     public function import(array $result)
