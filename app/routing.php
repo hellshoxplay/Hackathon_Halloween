@@ -17,4 +17,8 @@ $routes = [
         ['show', '/item/{id:\d+}', 'GET'], // action, url, method
         ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
     ],
+    'Bonbondex' => [ // Controller
+        ['showBasket', '/candy/basket', 'GET'], // action, url, method
+        ['importBasket', '/candy/basket/import', 'GET'], // action, url, method
+    ],
 ];
