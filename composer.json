@@ -1,12 +1,11 @@
 {
-    "name": "wilder21/hackathon_halloween",
+    "name": "wilder17/hackathon_halloween",
     "authors": [
         {
-            "name": "Eric Rousselet",
-            "email": "rousselet.eric@gmail.com"
+            "name": "Alicia Pilar",
+            "email": "alicia.pilar83@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "php" : ">=7",
         "ext-pdo" : "*",
@@ -14,7 +13,7 @@
         "twig/twig": "^2.4",
         "squizlabs/php_codesniffer": "^3.3",
         "swiftmailer/swiftmailer": "^6.1",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
     },

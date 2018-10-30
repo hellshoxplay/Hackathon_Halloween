@@ -8,9 +8,11 @@
 
 namespace Model;
 
+use GuzzleHttp\Client ;
+
 class CandyManager extends AbstractManager
 {
-    const TABLE = "Bonbondex";
+    const TABLE = 'Bonbondex';
 
     public function __construct(\PDO $pdo)
     {
@@ -49,5 +51,22 @@ class CandyManager extends AbstractManager
     public function addCandies(int $id, int $newCandiesQuantity)
     {
         $this->pdo->query("UPDATE $this->table SET quantity=$newCandiesQuantity WHERE id=$id");
+    }
+
+    public function searchCandy(?string $search = ''): array
+    {
+        $searching='';
+        if (!empty($search)) {
+            $searching = " WHERE name LIKE :search";
+        }
+        $statement = $this->pdo->prepare('SELECT * FROM ' . $this->table . $searching );
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+
+        if (!empty($search)) {
+            $statement->bindValue('search', "%$search%", \PDO::PARAM_STR);
+        }
+        if ($statement->execute()) {
+            return $statement->fetchAll();
+        }
     }
 }

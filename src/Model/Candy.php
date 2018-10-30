@@ -11,10 +11,10 @@ namespace Model;
 
 class Candy
 {
-    private $quantity;
-    private $name;
-    private $picture;
-    private $id;
+   private $quantity;
+   private $name;
+   private $picture;
+   private $id;
 
     /**
      * @return mixed
