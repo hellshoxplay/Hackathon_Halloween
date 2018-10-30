@@ -40,4 +40,14 @@ class CandyManager extends AbstractManager
             }
         }
     }
+
+    public function selectOneCandyQuantity(int $id)
+    {
+        return $this->pdo->query('SELECT quantity FROM ' . $this->table . ' WHERE id=' . $id, \PDO::FETCH_COLUMN, 0)->fetchColumn(0);
+    }
+
+    public function addCandies(int $id, int $newCandiesQuantity)
+    {
+        $this->pdo->query("UPDATE $this->table SET quantity=$newCandiesQuantity WHERE id=$id");
+    }
 }

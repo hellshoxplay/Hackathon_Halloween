@@ -50,4 +50,13 @@ class BonbondexController extends AbstractController
         header('Location:/candy/basket');
         exit();
     }
+
+    public function addNewCandies(int $id, int $newCandiesQuantity) {
+        $CandyManager = new CandyManager($this->pdo);
+        $candyQuantity = $CandyManager->selectOneCandyQuantity($id);
+        $newQuantity=$candyQuantity+$newCandiesQuantity;
+        $CandyManager->addCandies($id, $newQuantity);
+        header('Location:/candy/basket');
+        exit();
+    }
 }
