@@ -7,17 +7,23 @@
  */
 
 namespace Controller;
+
 use Model\CandyManager;
 use Model\Candy;
 
+
 class BonbondexController extends AbstractController
 {
-    public function showMeAll()
+
+    public function searchCandies()
     {
-        $CandyManager = new CandyManager($this->pdo);
-        $candy = $CandyManager->selectAll();
-
-        return $this->twig->render('Bonbondex/bonbondex.html.twig', ['candy' => $candy]);
-
+        $CandyManager = new CandyManager($this->getPdo());
+        $candies = $CandyManager->searchCandy($_GET['search'] ?? '');
+        return $this->twig->render('Bonbondex/bonbondex.html.twig', [
+            'candy' => $candies,
+            'search' => $_GET['search'] ?? '',
+        ]);
     }
+
+
 }

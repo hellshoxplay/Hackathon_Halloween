@@ -11,6 +11,6 @@
 
 $routes = [
     'Bonbondex'=> [ // Controller
-    ['showMeAll', '/bonbondex', 'GET'], // action, url, method
+    ['searchCandies', '/bonbondex', 'GET'], // action, url, method
     ],
 ];
