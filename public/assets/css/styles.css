@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     min-height: 100vh;
 }
+
 body{
     font-family: Spooky;
 
@@ -23,6 +24,13 @@ body{
 .card-title{
     height: 48px;
     overflow: hidden;
+}
+.image-candy{
+    background-color: white;
+    border-radius: 5vw;
+}
+.h5, h5 {
+    font-size: 14pt;
 }
 
 .form-inline .form-control {

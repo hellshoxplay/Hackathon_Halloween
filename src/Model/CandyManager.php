@@ -18,10 +18,6 @@ class CandyManager extends AbstractManager
         parent::__construct(self::TABLE, $pdo);
     }
 
-    public function selectAll(): array
-    {
-        return $this->pdo->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
-    }
     public function searchCandy(?string $search = ''): array
     {
         $searching='';
@@ -37,5 +33,34 @@ class CandyManager extends AbstractManager
         if ($statement->execute()) {
             return $statement->fetchAll();
         }
+    }
+
+    public function selectBasket(): array
+    {
+        return $this->pdo->query('SELECT * FROM ' . $this->table . ' WHERE quantity > 0', \PDO::FETCH_CLASS, $this->className)->fetchAll();
+    }
+
+    public function import(array $result)
+    {
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (`name`, `picture`, `quantity`) VALUES (:name, :picture, :quantity)");
+
+        foreach ($result as $key => $value) {
+            $statement->bindValue('name', $result[$key]['name'], \PDO::PARAM_STR);
+            $statement->bindValue('picture', $result[$key]['picture'], \PDO::PARAM_STR);
+            $statement->bindValue('quantity', 0, \PDO::PARAM_STR);
+            if ($statement->execute()) {
+                $this->pdo->lastInsertId();
+            }
+        }
+    }
+
+    public function selectOneCandyQuantity(int $id)
+    {
+        return $this->pdo->query('SELECT quantity FROM ' . $this->table . ' WHERE id=' . $id, \PDO::FETCH_COLUMN, 0)->fetchColumn(0);
+    }
+
+    public function addCandies(int $id, int $newCandiesQuantity)
+    {
+        $this->pdo->query("UPDATE $this->table SET quantity=$newCandiesQuantity WHERE id=$id");
     }
 }

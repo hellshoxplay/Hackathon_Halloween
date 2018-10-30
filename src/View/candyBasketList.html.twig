@@ -1,0 +1,7 @@
+<h2>Collection</h2>
+{% for candy in candy %}
+    <img src="{{ candy.picture }}"/>
+    <button type="button" class="btn btn-primary">
+        {{ candy.name }} <span class="badge badge-light">{{ candy.quantity }}</span>
+    </button>
+{% endfor %}

@@ -11,10 +11,17 @@ namespace Model;
 
 class Bonbondex
 {
+<<<<<<< HEAD
    private $quantity;
    private $name;
    private $picture;
    private $id;
+=======
+    private $quantity;
+    private $name;
+    private $picture;
+    private $id;
+>>>>>>> dfce47c387d02304198d2ceed2ae4130cf902adb
 
     /**
      * @return mixed
