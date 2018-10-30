@@ -11,6 +11,8 @@ use Model\Candy;
 
 class BonbondexController extends AbstractController
 {
+    const PAGE_TO_IMPORT=3;
+
     public function showMeAll()
     {
         $CandyManager = new CandyManager($this->pdo);
@@ -28,59 +30,22 @@ class BonbondexController extends AbstractController
     public function importBasket()
     {
         $client = new \GuzzleHttp\Client();
-        $request = new \GuzzleHttp\Psr7\Request('GET', 'https://fr.openfoodfacts.org/category/bonbons/1.json');
-        $promise = $client->sendAsync($request)->then(function ($response) {
-            $body = $response->getBody();
-            $body = json_decode($body, true, 10);
-            foreach ($body['products'] as $key => $value) {
-                if (!empty($value['product_name_fr'])) {
-                    $result[$key]['name'] = $value['product_name_fr'];
-                } else {
-                    $result[$key]['name'] = "Pas de nom";
+        for ($i=1; $i<=self::PAGE_TO_IMPORT; $i++) {
+            $request = new \GuzzleHttp\Psr7\Request('GET', 'https://fr.openfoodfacts.org/category/bonbons/'.$i.'.json');
+            $promise = $client->sendAsync($request)->then(function ($response) {
+                $body = $response->getBody();
+                $body = json_decode($body, true, 10);
+                foreach ($body['products'] as $key => $value) {
+                    if (!empty($value['product_name_fr']) && !empty($value['image_url'])) {
+                        $result[$key]['name'] = $value['product_name_fr'];
+                        $result[$key]['picture'] = $value['image_url'];
+                    }
                 }
-                if (!empty($value['image_url'])) {
-                    $result[$key]['picture'] = $value['image_url'];
-                } else {
-                    $result[$key]['picture'] = "Pas d'image";
-                }
-            }
-            $CandyManager = new CandyManager($this->pdo);
-            $CandyManager->import($result);
-        });
-        $promise->wait();
-        $request = new \GuzzleHttp\Psr7\Request('GET', 'https://fr.openfoodfacts.org/category/bonbons/2.json');
-        $promise = $client->sendAsync($request)->then(function ($response) {
-            $body = $response->getBody();
-            $body = json_decode($body, true, 10);
-            foreach ($body['products'] as $key => $value) {
-                if (!empty($value['product_name_fr'])) {
-                    $result[$key]['name'] = $value['product_name_fr'];
-                } else {
-                    $result[$key]['name'] = "Pas de nom";
-                }
-                if (!empty($value['image_url'])) {
-                    $result[$key]['picture'] = $value['image_url'];
-                } else {
-                    $result[$key]['picture'] = "Pas d'image";
-                }
-            }
-            $CandyManager = new CandyManager($this->pdo);
-            $CandyManager->import($result);
-        });
-        $promise->wait();
-        $request = new \GuzzleHttp\Psr7\Request('GET', 'https://fr.openfoodfacts.org/category/bonbons/3.json');
-        $promise = $client->sendAsync($request)->then(function ($response) {
-            $body = $response->getBody();
-            $body = json_decode($body, true, 10);
-            foreach ($body['products'] as $key => $value) {
-                if (!empty($value['product_name_fr']) && !empty($value['image_url']) && $value['product_name_fr']!="Pas de nom" && $value['image_url']!="Pas d'image") {
-                    $result[$key]['name'] = $value['product_name_fr'];
-                    $result[$key]['picture'] = $value['image_url'];
-                }
-            }
-            $CandyManager = new CandyManager($this->pdo);
-            $CandyManager->import($result);
-        });
+                $CandyManager = new CandyManager($this->pdo);
+                $CandyManager->import($result);
+            });
+            $promise->wait();
+        }
         $promise->wait();
         header('Location:/candy/basket');
         exit();
