@@ -27,6 +27,7 @@ a:hover {
 .candy , .book{
     background-color: rgba(255,255,255,1);
     box-shadow: 0px 0px 1px 3px rgba(255, 255, 255, 1);
+
 }
 .burger_menu,
 .pumpkin,
@@ -44,7 +45,7 @@ a:hover {
     z-index: 998;
     top: 0;
     right: 0;
-    bottom: -170px;
+    bottom: -40vh;
     left: 0;
     margin: auto;
     display: flex;
@@ -54,7 +55,7 @@ a:hover {
 }
 
 .candy , .book{
-    bottom: -690px;
+    bottom: -115vh;
 }
 
 .burger_menu {
@@ -126,10 +127,10 @@ a:hover {
     width: 50px;
 }
 .toggle_home {
-    transform: translate3d(-120px, -220px, 0);
+    transform: translate3d(-120px, -35vh, 0);
 }
 .toggle_mail {
-    transform: translate3d(120px, -220px, 0);
+    transform: translate3d(120px, -35vh, 0);
 }
 .hv_toggle {
     background: #fff;
