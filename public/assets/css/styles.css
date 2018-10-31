@@ -32,14 +32,16 @@
 
 body{
     font-family: Spooky;
-
     color:#ff7f00;
-    text-shadow: 2px 2px 4px black, 0 0 2em black, 0 0 0.8em black;
+}
+label{
+    margin-right: 2vw;
 }
 .card{
     background:transparent;
     border: none;
     padding:10px;
+    text-shadow: 2px 2px 4px black, 0 0 2em black, 0 0 0.8em black;
 }
 .card-title{
     height: 48px;
@@ -61,6 +63,7 @@ body{
     width: auto;
     vertical-align: middle;
     margin-right: -38px;
+    width: 330px;
 
 }
 .btn-outline-success:not(:disabled):not(.disabled).active:focus, .btn-outline-success:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-success.dropdown-toggle:focus {

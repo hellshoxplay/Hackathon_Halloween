@@ -689,9 +689,6 @@
             "time": "2018-07-13T07:18:09+00:00"
         }
     ],
-<<<<<<< Updated upstream
-    "packages-dev": [],
-=======
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
@@ -745,7 +742,6 @@
             "time": "2018-09-23T23:08:17+00:00"
         }
     ],
->>>>>>> Stashed changes
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
