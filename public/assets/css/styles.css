@@ -122,3 +122,6 @@ body{
 label{
     margin-right: 2vw;
 }
+h5{
+    text-shadow: 1px 1px 1px black, 0 0 0.5em black, 0 0 0.2em black;
+}
