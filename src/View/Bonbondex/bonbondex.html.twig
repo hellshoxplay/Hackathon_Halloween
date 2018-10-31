@@ -1,4 +1,8 @@
-{% include 'layout.html.twig' %}
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+{% endblock %}
+{% block content %}
 <div class="container">
     <div class="row ">
         <div class="col-lg-12 bold cl13 fs-30 d-flex justify-content-center m-t-50"></div>
@@ -20,3 +24,7 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+{% block footer %}
+{% include '/navbar.html.twig' %}
+{% endblock %}
