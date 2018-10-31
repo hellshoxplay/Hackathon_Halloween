@@ -1,21 +1,21 @@
 {
-    "name": "aurel/simple-mvc",
-    "description": "Simple from scratch PHP MVC",
+    "name": "wilder17/hackathon_halloween",
     "authors": [
         {
-            "name": "Aurelien",
-            "email": "barbier.aurelien@wildcodeschool.fr"
+            "name": "Alicia Pilar",
+            "email": "alicia.pilar83@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "php" : ">=7",
         "ext-pdo" : "*",
         "nikic/fast-route": "^1.2",
-        "twig/twig": "^2.4"
+        "twig/twig": "^2.4",
+        "squizlabs/php_codesniffer": "^3.3",
+        "swiftmailer/swiftmailer": "^6.1"
+
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
         "psr-4": {
