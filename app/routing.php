@@ -16,4 +16,7 @@ $routes = [
         ['searchCandies', '/bonbondex', 'GET'], // action, url, method
         ['addNewCandies', '/candy/basket/add/{id:\d+}/{quantity:\d+}', 'GET'], // action, url, method
     ],
+    'Map' => [
+        ['index', '/map', 'GET'],
+    ]
 ];

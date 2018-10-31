@@ -1,5 +1,11 @@
+<<<<<<< Updated upstream
 /vendor/
 /temp/*
 *.cache
 .idea
 /app/db.php
+=======
+
+/app/db.php
+/vendor/
+>>>>>>> Stashed changes
