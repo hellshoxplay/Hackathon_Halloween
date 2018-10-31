@@ -37,7 +37,7 @@ maxZoom: 20
 for (ville in villes) {
 var marker = L.marker([villes[ville].lat, villes[ville].lon]);
 
-marker.bindPopup(ville);
+marker.bindPopup(ville +'<br><button><a href='+"/candy/basket/add"+'>Ajouter un bonbon</a></button>');
 markerClusters.addLayer(marker); // Nous ajoutons le marqueur aux groupes
 markers.push(marker); // Nous ajoutons le marqueur à la liste des marqueurs
 }
@@ -52,4 +52,11 @@ window.onload = function () {
 initMap();
 };
 </script>
+
+<form action="/test" method="post">
+<label for="currentposition"><h3>Votre position</h3></label>
+<input type="text" class="form-control" name="GPS" id="currentposition">
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 {% endblock %}

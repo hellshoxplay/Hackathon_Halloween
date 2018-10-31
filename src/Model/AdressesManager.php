@@ -22,4 +22,5 @@ class AdressesManager extends AbstractManager
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table, \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
+
 }

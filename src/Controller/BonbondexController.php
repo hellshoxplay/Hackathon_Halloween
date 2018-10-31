@@ -10,6 +10,7 @@ namespace Controller;
 use Model\CandyManager;
 use Model\Candy;
 
+
 class BonbondexController extends AbstractController
 {
     const PAGE_TO_IMPORT=3;
@@ -52,11 +53,12 @@ class BonbondexController extends AbstractController
         exit();
     }
 
-    public function addNewCandies(int $id, int $newCandiesQuantity) {
+    public function addNewCandies() {
+        $idbonbon=rand(1,56);
         $CandyManager = new CandyManager($this->pdo);
-        $candyQuantity = $CandyManager->selectOneCandyQuantity($id);
-        $newQuantity=$candyQuantity+$newCandiesQuantity;
-        $CandyManager->addCandies($id, $newQuantity);
+        $candyQuantity = $CandyManager->selectOneCandyQuantity($idbonbon);
+        $newQuantity=$candyQuantity+1;
+        $CandyManager->addCandies($idbonbon,$newQuantity);
         header('Location:/candy/basket');
         exit();
     }
