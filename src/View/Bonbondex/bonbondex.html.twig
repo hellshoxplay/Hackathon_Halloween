@@ -1,4 +1,31 @@
 {% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+{% endblock %}
 {% block content %}
-    {% include 'Bonbondex/candycard.html.twig' %}
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-12 bold cl13 fs-30 d-flex justify-content-center m-t-50"></div>
+        {% for candy in candy %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 m-b-35 block-article">
+                <div class="block2">
+                    <div class="block2-pic hov-img0">
+                        <img src="{{ candy.picture }}" alt="IMG-PRODUCT" class="image-article">
+                    </div>
+                    <div class="block2-txt flex-w flex-t p-t-14">
+                        <div class="block2-txt-child1 flex-col-l ">
+                            <span class=" cl10 hov-cl1 trans-04  p-b-6 bold">
+                                {{ candy.name }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% include '/navbar.html.twig' %}
 {% endblock %}
