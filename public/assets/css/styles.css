@@ -32,16 +32,14 @@
 
 body{
     font-family: Spooky;
+
     color:#ff7f00;
-}
-label{
-    margin-right: 2vw;
+    text-shadow: 2px 2px 4px black, 0 0 2em black, 0 0 0.8em black;
 }
 .card{
     background:transparent;
     border: none;
     padding:10px;
-    text-shadow: 2px 2px 4px black, 0 0 2em black, 0 0 0.8em black;
 }
 .card-title{
     height: 48px;
@@ -58,9 +56,9 @@ label{
     max-width:100%;
     max-height:100%;
 }
+
 .form-inline .form-control {
     display: inline-block;
-    width: auto;
     vertical-align: middle;
     margin-right: -38px;
     width: 330px;

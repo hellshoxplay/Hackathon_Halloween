@@ -4,7 +4,7 @@
         {% for candy in candy %}
             <div class="card  col-sm-4 col-md-4 col-4">
                 <div class="card-img-top candy-image">
-                    <img src="{{ candy.picture }}" alt="Card image cap">
+                    <img src={% if  candy.quantity  == 0  %}"https://image.noelshack.com/fichiers/2018/44/2/1540930365-placeholder.png"{% endif %}"{{ candy.picture }}" alt="Card image cap">
                 </div>
                 <h5 class="card-title text-center">{{ candy.name }}</h5>
             </div>
