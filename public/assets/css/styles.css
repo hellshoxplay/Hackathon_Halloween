@@ -59,8 +59,31 @@ body{
     display: inline-block;
     vertical-align: middle;
     margin-right: -38px;
-    width: 330px;
+    width: 288px;
 
+}
+
+.search {
+    margin-right: 2vw;
+}
+
+.btn-outline-success:not(:disabled):not(.disabled):active, .show > .btn-outline-success.dropdown-toggle {
+    color: #fff;
+    background-color: #ff6200;
+    border-color: #ff6200;
+}
+.button-close{
+    margin-left: 88vw;
+    color:#ff6200;
+    border: none;
+}
+.button-close:hover{
+    color:#ff6200;
+    border: none;
+}
+.button-close:active{
+    color:#ff6200;
+    border: none;
 }
 .btn-outline-success:not(:disabled):not(.disabled).active:focus, .btn-outline-success:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-success.dropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(255, 134, 0, 0.5);
@@ -93,5 +116,6 @@ body{
 }
 #map {
     height: 100vh;
-
+    position: relative;
+    z-index: 1;
 }
