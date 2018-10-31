@@ -17,7 +17,7 @@ class BonbondexController extends AbstractController
         $CandyManager = new CandyManager($this->pdo);
         $candy = $CandyManager->selectAll();
 
-        return $this->twig->render('Bonbondex/bonbondex.html.twig', ['candy' => $candy]);
+        return $this->twig->render('bonbondex.html.twig', ['candy' => $candy]);
 
     }
 }
