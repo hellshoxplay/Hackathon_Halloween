@@ -9,10 +9,26 @@
     user-select: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-body {
-    overflow: hidden;
-}
+a{
+    color:transparent;
 
+}
+a:hover {
+    color:transparent;
+    text-decoration: none;
+}
+.pumpkin{
+    z-index: 999;
+    background-color: white;
+    border: white;
+    box-shadow: 0px 0px 1px 3px rgba(255, 255, 255, 1);
+    position: absolute;
+}
+.candy , .book{
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0px 0px 1px 3px rgba(255, 255, 255, 1);
+
+}
 .burger_menu,
 .pumpkin,
 .home,
@@ -23,10 +39,13 @@ body {
     cursor: pointer;
     width: 130px;
     height: 130px;
-    position: absolute;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 998;
     top: 0;
     right: 0;
-    bottom: -280px;
+    bottom: -40vh;
     left: 0;
     margin: auto;
     display: flex;
@@ -34,6 +53,11 @@ body {
     align-items: center;
     transition: all 0.3s ease;
 }
+
+.candy , .book{
+    bottom: -115vh;
+}
+
 .burger_menu {
     background: transparent;
     width: 110px;
@@ -69,7 +93,7 @@ body {
     height: 4px;
     border-radius: 10px;
     background: #fff;
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     right: 0;
     bottom: 0;
@@ -97,21 +121,16 @@ body {
     top: 0;
     transform: rotate(-45deg);
 }
-i.fa {
-    transition: color 0.5s ease;
-    color: #fff;
-    font-size: 25px;
-}
 .book,
 .candy {
     height: 50px;
     width: 50px;
 }
 .toggle_home {
-    transform: translate3d(-120px, 0px, 0);
+    transform: translate3d(-120px, -35vh, 0);
 }
 .toggle_mail {
-    transform: translate3d(120px, 0px, 0);
+    transform: translate3d(120px, -35vh, 0);
 }
 .hv_toggle {
     background: #fff;
@@ -145,21 +164,7 @@ main i.fa {
     justify-content: center;
     align-items: center;
 }
-.circle_background {
-    border-radius: 50%;
-    cursor: auto;
-    width: 50px;
-    height: 50px;
-    background: #fff;
-    transform: translateZ(0);
-    transition: all 0.3s linear;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-}
+
 .scale {
     z-index: 12;
     opacity: 1;
@@ -185,7 +190,7 @@ main i.fa {
     color: rgba(0,0,0,0.5);
     cursor: pointer;
     font-size: 30px;
-    position: absolute;
+    /*position: absolute;*/
     font-weight: lighter;
     top: 25px;
     transition: all 0.2s ease;
@@ -215,7 +220,7 @@ main i.fa {
     cursor: pointer;
     width: 230px;
     height: 230px;
-    position: absolute;
+    /*position: absolute;*/
     top: -220px;
     right: 0;
     bottom: 0;
@@ -228,7 +233,7 @@ main i.fa {
 .home_content .description,
 .mail_content .description {
     height: 120px;
-    position: absolute;
+    /*position: absolute;*/
     top: 200px;
     right: 0;
     bottom: 0;
@@ -343,73 +348,3 @@ main i.fa {
     height: 30px;
     background: #302c38;
 }
-/*!******************************************************************/
-/*~ Media queries*/
-/*******************************************************************!*/
-/*@media only screen and (max-width: 600px) {*/
-    /*.right_form,*/
-    /*.left_form {*/
-        /*width: 100%;*/
-        /*margin: 0 auto;*/
-        /*float: none;*/
-    /*}*/
-    /*.left_form > div {*/
-        /*margin: 0 auto;*/
-    /*}*/
-    /*.right_form .textarea {*/
-        /*height: 120px;*/
-        /*float: none;*/
-        /*margin: 20px auto;*/
-    /*}*/
-    /*.col_2,*/
-    /*.col_3 {*/
-        /*display: none;*/
-    /*}*/
-/*}*/
-/*.fosa {*/
-    /*background: #00f;*/
-/*}*/
-/*@-moz-keyframes bounce {*/
-    /*10%, 15% {*/
-        /*transform: scale(0.7);*/
-    /*}*/
-    /*30%, 45% {*/
-        /*transform: scale(1.1);*/
-    /*}*/
-    /*60%, 100% {*/
-        /*transform: scale(1);*/
-    /*}*/
-/*}*/
-/*@-webkit-keyframes bounce {*/
-    /*10%, 15% {*/
-        /*transform: scale(0.7);*/
-    /*}*/
-    /*30%, 45% {*/
-        /*transform: scale(1.1);*/
-    /*}*/
-    /*60%, 100% {*/
-        /*transform: scale(1);*/
-    /*}*/
-/*}*/
-/*@-o-keyframes bounce {*/
-    /*10%, 15% {*/
-        /*transform: scale(0.7);*/
-    /*}*/
-    /*30%, 45% {*/
-        /*transform: scale(1.1);*/
-    /*}*/
-    /*60%, 100% {*/
-        /*transform: scale(1);*/
-    /*}*/
-/*}*/
-/*@keyframes bounce {*/
-    /*10%, 15% {*/
-        /*transform: scale(0.7);*/
-    /*}*/
-    /*30%, 45% {*/
-        /*transform: scale(1.1);*/
-    /*}*/
-    /*60%, 100% {*/
-        /*transform: scale(1);*/
-    /*}*/
-/*}*/
