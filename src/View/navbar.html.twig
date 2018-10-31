@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/navbar.css">
+{% endblock %}
+
+{% block content %}
+<main class="main_menu">
+    <div class="burger_menu">
+        <div>
+            <img class="pumpkin" src="https://image.noelshack.com/fichiers/2018/44/2/1540919666-pumpkin.png">
+        </div>
+    </div>
+    <div class="mail">
+        <div>
+            <img class="book" src="https://image.noelshack.com/fichiers/2018/44/2/1540920714-book.png">
+        </div>
+    </div>
+    <div class="home">
+        <div>
+            <img class="candy" src="https://image.noelshack.com/fichiers/2018/44/2/1540921791-candys.png">
+        </div>
+    </div>
+</main>
+
+<!-- Home -->
+<section class="home_content">
+    <i class="fa fa-close icon_close close_home"></i>
+    <i class="fa fa-home home-show-only"></i>
+</section>
+
+</div>
+
+</section>
+
+<!-- Mail -->
+<section class="mail_content">
+    <i class="fa fa-close icon_close"></i>
+    <i class="fa fa-envelope envelope-show-only"></i>
+</section>
+
+{% endblock %}
+

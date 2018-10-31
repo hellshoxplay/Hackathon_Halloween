@@ -96,7 +96,6 @@ label{
     border-color: #ff6200;
 }
 #map {
-    height: 800px;
-    width: 1200px;
+    height: 100vh;
 
 }

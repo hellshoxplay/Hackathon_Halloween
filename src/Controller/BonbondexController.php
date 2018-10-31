@@ -28,6 +28,7 @@ class BonbondexController extends AbstractController
         return $this->twig->render('candyBasket.html.twig', ['candy' => $candy]);
     }
 
+
     public function importBasket()
     {
         $client = new \GuzzleHttp\Client();
